@@ -1,21 +1,13 @@
-import React, { Component } from 'react'
+import { useState } from 'react'
 
-class Form extends Component {
-  constructor(props) {
-    super(props)
-
-    /*
-            TODO - set initial state for link name and URL 
-        */
-  }
-
-  handleChange = (event) => {
+const Form = () => {
+  const handleChange = (event) => {
     /*
             TODO - Logic for changing state based on form changes
         */
   }
 
-  onFormSubmit = (event) => {
+  const onFormSubmit = (event) => {
     // to prevent page reload on form submit
     event.preventDefault()
 
@@ -24,13 +16,11 @@ class Form extends Component {
         */
   }
 
-  render() {
-    return (
-      <form>
-        {/* TODO - Logic for returning a form element with labels and inputs for link name and URL */}
-      </form>
-    )
-  }
+  return (
+    <form>
+      {/* TODO - Logic for returning a form element with labels and inputs for link name and URL */}
+    </form>
+  )
 }
 
 export default Form
