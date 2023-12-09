@@ -1,24 +1,51 @@
 import { useState } from 'react'
+const Form = (props) => {
+  const[name, setName]= useState("")
+  const[URL, setURL]= useState("")
 
-const Form = () => {
-  const handleChange = (event) => {
-    /*
-            TODO - Logic for changing state based on form changes
-        */
+  
+  const handleNameChange = (event) => {
+
+    console.log(event.target.value)
+   setName(event.target.value)
+  }
+  const handleURLChange = (event) => {
+
+    console.log(event.target.value)
+   setURL(event.target.value)
   }
 
   const onFormSubmit = (event) => {
     // to prevent page reload on form submit
-    event.preventDefault()
-
-    /*
-            TODO - Logic for calling props to handle submission and setting state changes
-        */
+    
+    
+            event.preventDefault()
+            console.log(name, URL)
+            
+            props.submitNewLink({name, URL})
+            
   }
 
   return (
-    <form>
-      {/* TODO - Logic for returning a form element with labels and inputs for link name and URL */}
+    <form onSubmit={onFormSubmit} >
+      
+        <label for="linkName">Link Name:</label>
+        <input type="text" id="linkName"
+        name="linkName"  onChange={handleNameChange}/>
+        <br />
+        <br />
+        <label for="URL">Link URL</label>
+        <input type="text" id="linkURL"
+        name="linkURL" onChange={handleURLChange} />
+        <br/>
+        <br/>
+        <input type = "submit" value="Submit"></input>
+
+
+
+
+
+      
     </form>
   )
 }
